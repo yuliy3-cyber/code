@@ -1,0 +1,41 @@
+<div id="main">
+  <nav class="navbar navbar-dark bg-dark shadow">
+    <div class="container-fluid px-5 py-2 d-flex justify-content-between">
+      <h4 class="text-white m-0">Dashboard</h4>
+      <button class="btn btn-outline-light" (click)="onLogout()">Logout</button>
+    </div>
+  </nav>
+
+  <div class="d-flex">
+    <div
+      class="bg-light shadow-sm d-flex flex-column"
+      style="width: 260px; height: 100vh; padding: 20px"
+    >
+      <h5 class="text-center text-primary mb-3">Menu</h5>
+      <ul class="list-unstyled">
+        <li>
+          <a
+            class="nav-link text-dark fw-semibold py-2 px-3 rounded d-block"
+            [routerLink]="[{ outlets: { content: ['profile'] } }]"
+            style="transition: 0.3s; text-decoration: none"
+          >
+            <i class="bi bi-person-circle me-2"></i> Profile
+          </a>
+        </li>
+        <li>
+          <a
+            class="nav-link text-dark fw-semibold py-2 px-3 rounded d-block mt-2"
+            [routerLink]="[{ outlets: { content: ['change-password'] } }]"
+            style="transition: 0.3s; text-decoration: none"
+          >
+            <i class="bi bi-key me-2"></i> Change Password
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="p-5 flex-grow-1 bg-white shadow-sm rounded">
+      <router-outlet name="content"></router-outlet>
+    </div>
+  </div>
+</div>
