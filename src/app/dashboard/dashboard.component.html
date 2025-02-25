@@ -1,40 +1,42 @@
 <div id="main">
-  <nav class="navbar navbar-dark bg-dark shadow">
-    <div class="container-fluid px-5 py-2 d-flex justify-content-between">
-      <h4 class="text-white m-0">Dashboard</h4>
-      <button class="btn btn-outline-light" (click)="onLogout()">Logout</button>
+  <!-- Navbar -->
+  <nav class="bg-gray-800 shadow-lg">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <h4 class="text-white text-xl font-semibold">Dashboard</h4>
+      <button 
+        class="bg-transparent border-2 border-white text-white px-4 py-2 rounded-lg hover:bg-white hover:text-gray-800 transition duration-300"
+        (click)="onLogout()">
+        Logout
+      </button>
     </div>
   </nav>
 
-  <div class="d-flex">
-    <div
-      class="bg-light shadow-sm d-flex flex-column"
-      style="width: 260px; height: 100vh; padding: 20px"
-    >
-      <h5 class="text-center text-primary mb-3">Menu</h5>
-      <ul class="list-unstyled">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <div class="bg-gray-100 w-64 shadow-md p-6 flex-shrink-0">
+      <h5 class="text-center text-blue-600 text-lg font-bold mb-6">Menu</h5>
+      <ul class="space-y-2">
         <li>
           <a
-            class="nav-link text-dark fw-semibold py-2 px-3 rounded d-block"
+            class="flex items-center gap-2 px-4 py-3 text-gray-700 font-semibold rounded-lg hover:bg-blue-500 hover:text-white transition duration-300"
             [routerLink]="[{ outlets: { content: ['profile'] } }]"
-            style="transition: 0.3s; text-decoration: none"
           >
-            <i class="bi bi-person-circle me-2"></i> Profile
+            <i class="bi bi-person-circle"></i> Profile
           </a>
         </li>
         <li>
           <a
-            class="nav-link text-dark fw-semibold py-2 px-3 rounded d-block mt-2"
+            class="flex items-center gap-2 px-4 py-3 text-gray-700 font-semibold rounded-lg hover:bg-blue-500 hover:text-white transition duration-300"
             [routerLink]="[{ outlets: { content: ['change-password'] } }]"
-            style="transition: 0.3s; text-decoration: none"
           >
-            <i class="bi bi-key me-2"></i> Change Password
+            <i class="bi bi-key"></i> Change Password
           </a>
         </li>
       </ul>
     </div>
 
-    <div class="p-5 flex-grow-1 bg-white shadow-sm rounded">
+    <!-- Content Area -->
+    <div class="flex-1 p-8 bg-gray-50 shadow-inner rounded-lg m-4">
       <router-outlet name="content"></router-outlet>
     </div>
   </div>
