@@ -16,16 +16,26 @@ export class UserService {
     if (token) {
       headers = headers.set('Authorization', `Bearer ${token}`);
     }
-    return this.http.post<any>(`${this.baseURL}/user-info`, { email }, { headers });
+    return this.http.post<any>(
+      `${this.baseURL}/user-info`,
+      { email },
+      { headers }
+    );
   }
 
-  changePassword(email: string, currentPassword: string, newPassword: string): Observable<any> {
+  changePassword(
+    email: string,
+    currentPassword: string,
+    newPassword: string
+  ): Observable<any> {
     const token = localStorage.getItem('token');
     let headers = new HttpHeaders();
     if (token) {
       headers = headers.set('Authorization', `Bearer ${token}`);
     }
     const body = { email, currentPassword, newPassword };
-    return this.http.post<any>(`${this.baseURL}/change-password`, body, { headers });
+    return this.http.post<any>(`${this.baseURL}/change-password`, body, {
+      headers,
+    });
   }
 }

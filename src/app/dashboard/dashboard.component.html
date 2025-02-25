@@ -1,48 +1,70 @@
-<div id="main" class="min-h-screen flex flex-col bg-gray-50">
-  <!-- Navbar -->
-  <nav class="bg-gray-900 shadow-xl">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <div></div>
-      <button
-        class="bg-white border-2 border-green-600 text-green-600 px-4 py-2 rounded-full hover:bg-green-600 hover:text-white transition duration-300 font-medium shadow-md hover:shadow-lg"
-        (click)="onLogout()"
-      >
-        Logout
-      </button>
-    </div>
-  </nav>
-
-  <div class="flex flex-1">
-    <!-- Sidebar -->
-    <div
-      class="bg-gray-100 w-64 shadow-xl p-6 flex-shrink-0 max-h-[calc(100vh-120px)] overflow-y-auto rounded-r-xl border-r border-gray-200"
-    >
-      <h5 class="text-center text-green-600 text-lg font-bold mb-8">Menu</h5>
-      <ul class="space-y-4">
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-4 text-gray-900 font-bold rounded-xl hover:bg-green-600 hover:text-white transition duration-300 shadow-md hover:shadow-lg"
-            [routerLink]="[{ outlets: { content: ['profile'] } }]"
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="main" class="min-h-screen flex flex-col bg-gray-50">
+      <!-- Navbar -->
+      <nav class="bg-gray-900 shadow-xl">
+        <div
+          class="container mx-auto px-6 py-4 flex justify-between items-center"
+        >
+          <div></div>
+          <button
+            class="bg-white border-2 border-green-600 text-green-600 px-5 py-2 rounded-full font-medium shadow-md transition-all duration-300 ease-in-out hover:bg-green-600 hover:text-white hover:shadow-lg hover:scale-105 hover:border-green-600 active:bg-green-600 active:text-white active:scale-95 active:shadow-inner focus:outline-none focus:ring-4 focus:ring-green-400 focus:ring-opacity-60 relative overflow-hidden z-10 before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-r before:from-green-500/30 before:via-transparent before:to-green-500/30 before:-translate-x-[150%] before:skew-x-12 before:transition-transform before:duration-700 before:z-[-1] hover:before:translate-x-[50%]"
+            (click)="onLogout()"
           >
-            <i class="bi bi-person-circle text-2xl"></i> Profile
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-4 text-gray-900 font-bold rounded-xl hover:bg-green-600 hover:text-white transition duration-300 shadow-md hover:shadow-lg"
-            [routerLink]="[{ outlets: { content: ['change-password'] } }]"
-          >
-            <i class="bi bi-key text-2xl"></i> Change Password
-          </a>
-        </li>
-      </ul>
-    </div>
+            Logout
+          </button>
+        </div>
+      </nav>
 
-    <!-- Content Area -->
-    <div
-      class="flex-1 p-8 bg-white shadow-xl rounded-xl m-4 max-h-[calc(100vh-120px)] overflow-y-auto border-l border-gray-200"
-    >
-      <router-outlet name="content"></router-outlet>
+      <div class="flex flex-1">
+        <!-- Sidebar -->
+        <div
+          class="bg-gray-100 w-64 shadow-xl p-6 flex-shrink-0 max-h-[calc(100vh-120px)] overflow-y-auto rounded-r-xl border-r border-gray-200"
+        >
+          <h5 class="text-center text-green-600 text-lg font-bold mb-8">
+            Menu
+          </h5>
+          <ul class="space-y-4">
+            <li>
+              <a
+                class="flex items-center gap-4 px-4 py-4 text-gray-900 font-bold rounded-xl hover:bg-green-600 hover:text-white transition duration-300 shadow-md hover:shadow-lg"
+                [routerLink]="[{ outlets: { content: ['profile'] } }]"
+              >
+                <i class="bi bi-person-circle text-2xl"></i> Profile
+              </a>
+            </li>
+            <li>
+              <a
+                class="flex items-center gap-4 px-4 py-4 text-gray-900 font-bold rounded-xl hover:bg-green-600 hover:text-white transition duration-300 shadow-md hover:shadow-lg"
+                [routerLink]="[{ outlets: { content: ['change-password'] } }]"
+              >
+                <i class="bi bi-key text-2xl"></i> Change Password
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Content Area -->
+        <div
+          class="flex-1 p-8 bg-white shadow-xl rounded-xl m-4 max-h-[calc(100vh-120px)] overflow-y-auto border-l border-gray-200"
+        >
+          <router-outlet name="content"></router-outlet>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  </body>
+</html>
